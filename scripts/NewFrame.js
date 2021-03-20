@@ -10,9 +10,11 @@ class NewFrame {
         
         let canvas = document.getElementById("canvas")
 
-        // 0 = POPUPWINDOW
-        // 1 = TXTBOX
-        // 2 = CHECKBUTTON
+        // 0 = Main Window
+        // 1 = Top Part of Window
+        // 2 = Bottom Part of Window
+        // 3 = Text Box
+        // 4 = Check Button
 
         let window_taglines = [
             document.createElement("div"),
@@ -23,10 +25,10 @@ class NewFrame {
         ]
 
         let attribute = [
-            "tmp__addWindow", 
-            "tmp__addWindow__top", 
-            "tmp__addWindow__btm", 
-            "tmp__addWindow__txtBox", 
+            "tmp__addWindow",
+            "tmp__addWindow__top",
+            "tmp__addWindow__btm",
+            "tmp__addWindow__txtBox",
             "fas fa-check"
         ]
 
@@ -53,27 +55,31 @@ class NewFrame {
         canvas.insertBefore(window_taglines[0], null)
 
         ADDFRAME.onclick = function(){
-
-            // Creates a new element for the video
-            let frame = document.createElement("IFRAME")
             
             // YOUTUBE URL STRING MANIP
-            let url = window_taglines[3].value
+            let raw_youtube = window_taglines[3].value
 
-        
-            // TODO: EDIT URL W/ REGEX
+            let edt_url = raw_youtube.replace(/&\S+/, "?autoplay=1")
+            let url = edt_url.replace(/watch\Wv=/, "embed/")
 
-            frame.setAttribute("src", url)
-            
-            let canvas = document.getElementById("canvas")
-            canvas.insertBefore(frame, null)
-            console.log(url)
+            if(url == "")
+                window_taglines[0].remove()
+            else{
+                // Creates a new element for the video
+                let frame = document.createElement("IFRAME")
 
-            window_taglines[0].remove()
-            
+                // TODO: EDIT URL W/ REGEX
+    
+                frame.setAttribute("src", url)
+                frame.setAttribute("allow", "autoplay")
+                
+                let canvas = document.getElementById("canvas")
+                canvas.insertBefore(frame, null)
+                console.log(url)
+    
+                window_taglines[0].remove()
+            }
         }
-
-
 
         console.log("pwet")
     }
