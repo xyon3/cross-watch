@@ -5,6 +5,8 @@
 
 This project will let you watch livestreams simultaneously. You can also toggle on or off to see their live chat.
 
+### IMPORTANT: It works only in Youtube ATM.
+
 ## `Proposed Features`
 
     1. Embed Livestreams (Done)
