@@ -7,7 +7,7 @@ This project will let you watch livestreams simultaneously. You can also toggle 
 
 ## `Proposed Features`
 
-    1. Embed Livestreams
+    1. Embed Livestreams (Done)
         - Embed or add livestreams from multiple streaming website (Facebook, Youtube, Twitch).
         - This allows the viewer to watch multiple streams in a cleaner way.
 
